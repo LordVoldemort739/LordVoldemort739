@@ -1,0 +1,33 @@
+#largest prime factor of a number.
+def primechecker(n):
+    p=list()
+    i=2
+    while i<=n//2+1:
+        if n%i==0:
+            break
+        else:
+            i+=1
+    if i==n//2+2:
+        return 1
+#a=primechecker(8462696833)
+#print(a)
+import math
+num=600851475143
+val1=set()
+numrt=int(math.sqrt(num))
+for j in range(2,numrt):
+    if num%j==0:
+        val1.add(j)
+#print(val1)
+val2=set()
+for k in val1:
+    if num%k==0:
+        val2.add(int(num/k))
+#print(val2)
+val=val1.union(val2)
+#print(val)
+s=list()
+for x in val:
+    if primechecker(x)==1:
+        s.append(x)
+print(max(s))
